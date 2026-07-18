@@ -395,9 +395,17 @@ Key observation: logistic regression outperformed the ensembles on this relative
 }
 ```
 
-## Appendix B – Video demo outline
+## Appendix B – Video demo
 
-Record a 3–5 minute screencast covering: repo walkthrough → EDA plots → MLflow UI → pytest/CI → Docker predict → Kubernetes pods → Prometheus metrics.
+File: `screenshots/pipeline_demo.mp4` (~2.5 minutes).
+
+Coverage: repo walkthrough → data/EDA → training + MLflow → GitHub Actions CI → Docker `/predict` + Swagger → Kubernetes pods → Prometheus metrics/targets.
+
+Regenerate:
+
+```bash
+python scripts/record_demo.py
+```
 
 ---
 
