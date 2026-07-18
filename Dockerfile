@@ -15,7 +15,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+# Trusted-host flags help in environments with TLS inspection / missing CA bundles
+RUN pip install --upgrade pip \
+    && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org -r requirements.txt
 
 COPY src ./src
 COPY api ./api

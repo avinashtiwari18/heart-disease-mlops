@@ -112,7 +112,14 @@ The binary target is roughly balanced (near 46–54% depending on exact clean su
 - Prefer ROC-AUC for model selection because it is threshold-robust.  
 - Keep a single serializable preprocessing+model pipeline for inference parity.
 
-**EDA screenshots:** `screenshots/correlation_heatmap.png`, `screenshots/class_balance.png`, `screenshots/numeric_histograms.png`.
+### EDA figures
+
+![Class balance](screenshots/class_balance.png)
+
+![Correlation heatmap](screenshots/correlation_heatmap.png)
+
+![Numeric histograms](screenshots/numeric_histograms.png)
+
 
 ---
 
@@ -158,8 +165,6 @@ models/model_metadata.json
 
 Selection rationale is logged in MLflow run `best_model_selection`.
 
-*(After training, paste your leaderboard numbers and best model name here.)*
-
 ---
 
 ## 6. Experiment Tracking (MLflow)
@@ -178,7 +183,10 @@ Launch UI:
 mlflow ui --backend-store-uri ./mlflow_tracking --port 5000
 ```
 
-**MLflow screenshot:** `screenshots/02_mlflow_ui.png` — experiment `heart-disease-uci` with logistic_regression, random_forest, gradient_boosting, and best_model_selection runs.
+### MLflow experiment tracking
+
+![MLflow UI — heart-disease-uci runs](screenshots/02_mlflow_ui.png)
+
 
 ---
 
@@ -210,7 +218,10 @@ Stages: checkout → Python 3.11 → install → flake8 → download data → py
 
 Failure policy: critical flake8 errors or any pytest failure fail the workflow; logs are visible in the Actions UI.
 
-**CI screenshot:** `screenshots/04_github_actions.png` — Heart Disease MLOps CI run #1 on `main` (green, ~3m 25s).
+### CI/CD evidence
+
+![GitHub Actions green run](screenshots/04_github_actions.png)
+
 
 ---
 
@@ -233,7 +244,12 @@ bash scripts/sample_predict.sh
 
 FastAPI Swagger UI: `http://127.0.0.1:8000/docs`
 
-**Docker screenshots:** `screenshots/05_docker_predict.png` (build/run + `/health` + `/predict`), `screenshots/08_swagger_ui.png` (FastAPI Swagger `/docs`).
+### Docker serving evidence
+
+![Docker /health and /predict](screenshots/05_docker_predict.png)
+
+![FastAPI Swagger UI](screenshots/08_swagger_ui.png)
+
 
 ---
 
@@ -260,7 +276,10 @@ kubectl get pods,svc
 bash scripts/sample_predict.sh http://127.0.0.1:8000
 ```
 
-**Kubernetes screenshots:** `screenshots/06_k8s_pods.png` (2/2 pods Running on Rancher Desktop), `screenshots/06_k8s_predict.png` (port-forward `/health` + `/predict`).
+### Kubernetes deployment evidence
+
+![Kubernetes pods and services](screenshots/06_k8s_pods.png)
+
 
 ### Access instructions (local testing)
 
@@ -283,7 +302,10 @@ If a public cloud URL is later provisioned (GKE/EKS/AKS/Render), replace this se
 
 Why monitoring matters for ML systems: detect API downtime, latency regressions, elevated 5xx rates, and (with future extensions) prediction drift / data drift.
 
-**Monitoring screenshots:** `screenshots/07_prometheus_or_metrics.png` (`GET /metrics`), `screenshots/07_prometheus_targets.png` (Prometheus targets UI).
+### Monitoring evidence
+
+![Prometheus targets UI](screenshots/07_prometheus_targets.png)
+
 
 ---
 
@@ -320,6 +342,9 @@ Why monitoring matters for ML systems: detect API downtime, latency regressions,
 ---
 
 ## 13. Results Summary
+
+![Model comparison ROC-AUC](screenshots/model_comparison_roc_auc.png)
+
 
 Held-out test metrics from the local training run (`python -m src.train`):
 
