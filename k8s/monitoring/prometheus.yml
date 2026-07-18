@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "heart-disease-api"
+    metrics_path: /metrics
+    static_configs:
+      # Docker Compose network hostname
+      - targets: ["heart-disease-api:8000"]
+        labels:
+          env: local-docker
+      # Host machine when Prometheus runs outside compose
+      - targets: ["host.docker.internal:8000"]
+        labels:
+          env: host

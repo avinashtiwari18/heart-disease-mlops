@@ -1,0 +1,35 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+*.log
+
+# Local secrets / OS / corporate identity
+.env
+.DS_Store
+*.pem
+*.key
+credentials*
+*intuit*
+
+# Local MLflow runs (may contain absolute local paths / machine user ids)
+mlflow_tracking/**
+!mlflow_tracking/.gitkeep
+
+# Local API logs
+artifacts/logs/
+
+# Optional large demo preview (MP4 is kept; regenerate GIF if needed)
+screenshots/pipeline_demo.gif

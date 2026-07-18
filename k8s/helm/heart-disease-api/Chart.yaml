@@ -1,0 +1,6 @@
+apiVersion: v2
+name: heart-disease-api
+description: Helm chart for Heart Disease Risk Prediction API (AIMLCZG523 A01)
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

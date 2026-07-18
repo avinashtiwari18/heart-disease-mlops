@@ -1,0 +1,25 @@
+{
+  "best_model": "logistic_regression",
+  "best_roc_auc": 0.9653679653679654,
+  "best_params": {
+    "model__C": 1.0,
+    "model__penalty": "l2",
+    "model__solver": "lbfgs"
+  },
+  "feature_order": [
+    "age",
+    "sex",
+    "cp",
+    "trestbps",
+    "chol",
+    "fbs",
+    "restecg",
+    "thalach",
+    "exang",
+    "oldpeak",
+    "slope",
+    "ca",
+    "thal"
+  ],
+  "model_path": "models/heart_disease_pipeline.joblib"
+}
